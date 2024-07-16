@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Navbar from '../components/navbar';
 import BannerFilm from '../components/banner_film';
 import Slider from '../components/slider';
-import { fetchMovies } from '../api/tmdb'; // Assure-toi d'avoir une fonction fetchMovies pour appeler l'API TheMovieDB
+import { fetchMovies } from '../api/tmdb-api'; // Assure-toi d'avoir une fonction fetchMovies pour appeler l'API TheMovieDB
 
 const Homepage = () => {
   const [moviesNowPlaying, setMoviesNowPlaying] = useState([]);
