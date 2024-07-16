@@ -5,8 +5,8 @@ import Navbar from '../components/navbar/navbar.jsx';
 const DetailFilm = () => {
   // Ces données seront à remplacer par des données réelles plus tard
   const film = {
-    title: "Titre du Film",
-    bannerImage: "url_de_l_image_banniere",
+    title: "Kingdom of the Planet of the Apes",
+    bannerImage: "https://wallpapercg.com/media/ts_orig/17851.webp",
     duration: "2h 30min",
     language: "Français",
     genre: "Fantastique",
@@ -29,9 +29,11 @@ const DetailFilm = () => {
 
       <div className="film-info">
         <div className="left-column">
-          <p>Durée: {film.duration}</p>
-          <p>Langue: {film.language}</p>
-          <p>Genre: {film.genre}</p>
+          <div className="info_film">
+            <p>Durée: {film.duration}</p>
+            <p>Langue: {film.language}</p>
+            <p>Genre: {film.genre}</p>
+          </div>
           <p>Synopsis: {film.synopsis}</p>
         </div>
         <div className="right-column">
