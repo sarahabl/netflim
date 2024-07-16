@@ -1,5 +1,5 @@
 import React from 'react';
-// import Navbar from '../components/navbar/navbar.jsx';
+import Navbar from '../components/navbar/navbar.jsx';
 // import Slider from '../components/sliders/slider.jsx';
 
 const DetailFilm = () => {
@@ -18,7 +18,7 @@ const DetailFilm = () => {
 
   return (
     <div className="detail-film">
-      {/* <Navbar /> */}
+      <Navbar />
       
       <div className="banner">
         <img src={film.bannerImage} alt={film.title} />
