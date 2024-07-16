@@ -5,16 +5,21 @@ import avatar from '../../images/avatar_icon.png';
 
 const NavBar = () => {
   return (
-    <div className="navbar">
-      <div className="logo">
-        <img src={logo} alt="Netflim Logo" />
+    <nav className="navbar navbar-expand-lg navbar-dark fixed-top">
+      <div className="container-fluid">
+        <a className="navbar-brand" href="/">
+          <img src={logo} alt="Netflim Logo" height="30" />
+        </a>
+        <div className="ms-auto">
+          <button 
+            className="btn btn-link" 
+            onClick={() => window.location.href = '/profile'}
+          >
+            <img src={avatar} alt="Avatar" height="30" className="rounded-circle" />
+          </button>
+        </div>
       </div>
-      <div className="avatar">
-        <button onClick={() => window.location.href = '/profile'}>
-          <img src={avatar} alt="Avatar" />
-        </button>
-      </div>
-    </div>
+    </nav>
   );
 };
 
