@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 
 import Navbar from '../components/navbar/navbar.jsx';
-import Banner from '../components/banner_film/banner_film.jsx';
+// import UserProfile from '../components/userProfile/UserProfileComponent.jsx';
+
 import Slider from '../components/sliders/slider.jsx';
-import UserProfile from '../components/userProfile/UserProfileComponent.jsx';
 import { fetchMovies } from '../api/tmdb-api.js';
 
 const UserProfilePage = () => {
@@ -22,8 +22,7 @@ const UserProfilePage = () => {
   return (
     <div>
       <Navbar />
-      <Banner />
-      <UserProfile />
+      {/* <UserProfile /> */}
       <div className="content">
         <Slider title="Favorite Movies" movies={favoriteMovies} />
         <Slider title="To Watch Movies" movies={toWatchMovies} />
