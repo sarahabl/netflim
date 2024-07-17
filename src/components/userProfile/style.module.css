@@ -21,7 +21,7 @@
   justify-content: center;
 }
 
-h1 {
+#name {
   font-family: "Bebas Neue";
   font-size: 2rem;
   font-style: normal;
@@ -37,16 +37,26 @@ h1 {
   line-height: normal;
 }
 
-label {
+label,
+#country,
+#lang {
+  color: var(--black);
   font-family: "Segoe UI";
-  font-size: 1.03125rem;
+  font-size: 1.375rem;
   font-style: normal;
-  font-weight: 400;
+  font-weight: normal;
   line-height: normal;
+}
+
+.preference {
+  display: flex;
+  align-items: center;
 }
 
 .preference>select {
   margin: 1vw;
+  border: none;
+  background-color: white;
 }
 
 /* Style pour le container du switch */
@@ -101,7 +111,7 @@ label {
   transform: rotate(45deg);
   opacity: 0;
   transition: opacity 0.4s;
-  left: 37.5px;
+  left: 36px;
   top: 7px;
 }
 
