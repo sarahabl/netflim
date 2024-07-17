@@ -23,17 +23,17 @@
 
 h1 {
   font-family: "Bebas Neue";
-  font-size: 3rem;
+  font-size: 2rem;
   font-style: normal;
-  font-weight: 400;
+  font-weight: normal;
   line-height: normal;
 }
 
-h2 {
+#pref {
   font-family: "Segoe UI";
-  font-size: 1.125rem;
+  font-size: 1.5rem;
   font-style: normal;
-  font-weight: 700;
+  font-weight: bold;
   line-height: normal;
 }
 
@@ -45,12 +45,17 @@ label {
   line-height: normal;
 }
 
+.preference>select {
+  margin: 1vw;
+}
+
 /* Style pour le container du switch */
 .switch {
+  margin: 1vw;
   position: relative;
   display: inline-block;
-  width: 60px;
-  height: 34px;
+  width: 50px;
+  height: 24px;
 }
 
 /* Cache le checkbox d'origine */
@@ -70,30 +75,49 @@ label {
   bottom: 0;
   background-color: #ccc;
   transition: 0.4s;
-  border-radius: 34px;
+  border-radius: 24px;
 }
 
 .toggle:before {
   position: absolute;
   content: "";
-  height: 26px;
-  width: 26px;
-  left: 4px;
-  bottom: 4px;
+  height: 20px;
+  width: 20px;
+  left: 2px;
+  bottom: 2px;
   background-color: white;
   transition: 0.4s;
   border-radius: 50%;
 }
 
+/* Style pour la coche */
+.toggle:after {
+  content: '';
+  position: absolute;
+  width: 5px;
+  height: 10px;
+  border: solid black;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  opacity: 0;
+  transition: opacity 0.4s;
+  left: 37.5px;
+  top: 7px;
+}
+
 input:checked+.toggle {
-  background-color: #2196F3;
+  background-color: var(--dark-red);
 }
 
 input:checked+.toggle:before {
   transform: translateX(26px);
 }
 
+input:checked+.toggle:after {
+  opacity: 1;
+}
+
 /* Optionnel: ajoute des styles de focus */
 input:focus+.toggle {
-  box-shadow: 0 0 1px #2196F3;
+  box-shadow: 0 0 1px var(--dark-red);
 }
