@@ -16,6 +16,13 @@ export const fetchMovieDetails = async (movieId) => {
   const creditsResponse = await fetch(`${BASE_URL}/movie/${movieId}/credits?api_key=${API_KEY}`);
   const creditsData = await creditsResponse.json();
 
+  // Fetch movie videos (including trailers)
+  const videosResponse = await fetch(`${BASE_URL}/movie/${movieId}/videos?api_key=${API_KEY}`);
+  const videosData = await videosResponse.json();
+
+  // Find the first trailer in the videos results
+  const trailer = videosData.results.find(video => video.type === 'Trailer' && video.site === 'YouTube');
+
   // Extract relevant data
   const movieDetails = {
     title: movieData.title,
@@ -26,8 +33,9 @@ export const fetchMovieDetails = async (movieId) => {
     genre: movieData.genres.map(genre => genre.name).join(', '),
     director: creditsData.crew.find(member => member.job === 'Director')?.name || 'N/A',
     writer: creditsData.crew.find(member => member.job === 'Screenplay')?.name || 'N/A',
-    actors: creditsData.cast.slice(0, 5).map(actor => actor.name) // Get top 5 actors
+    actors: creditsData.cast.slice(0, 5).map(actor => actor.name), // Get top 5 actors
+    trailerKey: trailer ? trailer.key : null
   };
 
   return movieDetails;
-};
+}

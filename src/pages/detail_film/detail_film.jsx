@@ -66,6 +66,16 @@ const DetailFilm = () => {
               <div className="row">
                 <div className="col-12">
                   <p><strong>Synopsis:</strong> {film.synopsis}</p>
+                  {film.trailerKey && (
+                        <a 
+                            href={`https://www.youtube.com/watch?v=${film.trailerKey}`} 
+                            target="_blank" 
+                            rel="noopener noreferrer" 
+                            className="btn btn-primary mt-2"
+                        >
+                            Voir la bande-annonce
+                        </a>
+                    )}
                 </div>
               </div>
             </div>
