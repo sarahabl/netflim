@@ -8,7 +8,26 @@ export const fetchMovies = async () => {
 };
 
 export const fetchMovieDetails = async (movieId) => {
-  const response = await fetch(`${BASE_URL}/movie/${movieId}?api_key=${API_KEY}`);
-  const data = await response.json();
-  return data;
+  // Fetch movie details
+  const movieResponse = await fetch(`${BASE_URL}/movie/${movieId}?api_key=${API_KEY}`);
+  const movieData = await movieResponse.json();
+
+  // Fetch movie credits
+  const creditsResponse = await fetch(`${BASE_URL}/movie/${movieId}/credits?api_key=${API_KEY}`);
+  const creditsData = await creditsResponse.json();
+
+  // Extract relevant data
+  const movieDetails = {
+    title: movieData.title,
+    duration: movieData.runtime,
+    language: movieData.original_language,
+    synopsis: movieData.overview,
+    bannerImage: movieData.backdrop_path ? `https://image.tmdb.org/t/p/w500${movieData.backdrop_path}` : null,
+    genre: movieData.genres.map(genre => genre.name).join(', '),
+    director: creditsData.crew.find(member => member.job === 'Director')?.name || 'N/A',
+    writer: creditsData.crew.find(member => member.job === 'Screenplay')?.name || 'N/A',
+    actors: creditsData.cast.slice(0, 5).map(actor => actor.name) // Get top 5 actors
+  };
+
+  return movieDetails;
 };
