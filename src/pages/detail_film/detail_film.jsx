@@ -34,7 +34,7 @@ const DetailFilm = () => {
 
   return (
     <div className={`${style.detailFilm} text-light`}>
-      <div className={style.banner}>
+      <div className={`${style.banner}`}>
         <div className="position-relative">
           <img 
             src={film.bannerImage} 
@@ -42,8 +42,8 @@ const DetailFilm = () => {
             alt={film.title} 
           />
           <div className="position-absolute top-0 start-0 w-100 h-100 bg-gradient"></div>
-          <div className={style.container}>
-            <div className="position-absolute top-50 start-0 translate-middle-y text-start text-white ps-4 mt-lg-5 pt-lg-5">
+          <div className={`${style.container}`}>
+            <div className="position-absolute top-50 start-0 text-start text-white mx-4 px-2">
               <h1 className="display-3">{film.title}</h1>
               <div className="mt-3">
                 <button type="button" className="btn btn-danger me-2">Lecture</button>
@@ -54,18 +54,18 @@ const DetailFilm = () => {
         </div>
       </div>
 
-      <div className='body'>
+      <div className='body my-4'>
         <div className="container mt-4">
           <div className="row">
-            <div className="col-md-6 text-start">
+            <div className="col-lg-8 text-start">
               <div className="row mb-3">
-                <div className="col-4">
+                <div className="col-auto me-3">
                   <p>Durée: {film.duration} min</p>
                 </div>
-                <div className="col-4">
+                <div className="col-auto me-3">
                   <p>Langue: {film.language}</p>
                 </div>
-                <div className="col-4">
+                <div className="col-auto">
                   <p>Genre: {film.genre}</p>
                 </div>
               </div>
@@ -85,7 +85,7 @@ const DetailFilm = () => {
                 </div>
               </div>
             </div>
-            <div className="col-md-6 text-start">
+            <div className="col-lg-4 text-start">
               <p>Réalisateur: {film.director}</p>
               <p>Acteurs: {film.actors.join(', ')}</p>
               <p>Scénariste: {film.writer}</p>
@@ -93,7 +93,7 @@ const DetailFilm = () => {
           </div>
         </div>
 
-        <div className="container mt-4">
+        <div className="container my-4">
           <div className="similar-titles text-start">
             <h2>Titres similaires</h2>
             {/* Ici, vous intégrerez votre composant Slider plus tard */}

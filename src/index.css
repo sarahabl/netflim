@@ -63,4 +63,6 @@ code {
   --dark-red:#980101;
   --grey: #595959;
   background-color: #141414;
+  scrollbar-width: thin; /* Pour Firefox */
+  scrollbar-color: rgba(136, 136, 136, 0.5) transparent; /* Pour Firefox */
 }

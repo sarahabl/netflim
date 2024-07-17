@@ -2,40 +2,75 @@
     position: relative;
 }
 
-.row {
-scrollbar-width: none;
--ms-overflow-style: none;
+.slider-wrapper {
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin; /* Pour Firefox */
+    scrollbar-color: rgba(136, 136, 136, 0.5) transparent; /* Pour Firefox */
 }
 
-.row::-webkit-scrollbar {
-display: none;
+/* Styles pour WebKit (Chrome, Safari, etc.) */
+.slider-wrapper::-webkit-scrollbar {
+    width: 6px; /* Largeur de la barre de défilement verticale */
+    height: 3px; /* Hauteur de la barre de défilement horizontale */
+}
+
+.slider-wrapper::-webkit-scrollbar-track {
+    background: transparent; /* Fond transparent */
+}
+
+.slider-wrapper::-webkit-scrollbar-thumb {
+    background-color: rgba(136, 136, 136, 0.5); /* Couleur semi-transparente */
+    border-radius: 3px;
+    border: 2px solid transparent; /* Crée un effet de padding */
+    background-clip: content-box;
+}
+
+.slider-wrapper::-webkit-scrollbar-button {
+    display: none; /* Cache les boutons (flèches) de la barre de défilement */
+}
+
+.slider-item {
+    flex: 0 0 auto;
+    width: 300px; /* Ajustez selon vos besoins */
+    margin: 1rem; /* Espace entre les éléments */
 }
 
 .movie-card {
-width: 200px;
-transition: transform 0.3s ease-in-out;
-border-radius: 10px;
-overflow: hidden;
+    width: 300px;
+    height: 220px;
+    transition: transform 0.3s ease-in-out;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
 }
 
 .movie-card:hover {
-transform: scale(1.05);
-z-index: 1;
+    transform: scale(1.05);
+    z-index: 1;
 }
 
 .movie-card img {
-height: 300px;
-object-fit: cover;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .card-body {
-padding: 0.5rem;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 0.5rem;
 }
 
 .card-title {
-font-size: 0.9rem;
-margin-bottom: 0;
-white-space: nowrap;
-overflow: hidden;
-text-overflow: ellipsis;
+    color: white !important;
+    font-size: 0.9rem;
+    margin-bottom: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
