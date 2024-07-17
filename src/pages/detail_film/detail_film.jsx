@@ -1,5 +1,4 @@
 import React from 'react';
-import Navbar from '../../components/navbar/navbar.jsx';
 // import Slider from '../components/sliders/slider.jsx';
 import style from './style.module.css';
 
@@ -19,7 +18,6 @@ const DetailFilm = () => {
 
   return (
     <div className={`${style.detailFilm} text-light`}>
-      <Navbar />
       
         <div className={`${style.banner}`}>
             <div className="position-relative">
