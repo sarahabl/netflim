@@ -39,3 +39,10 @@ export const fetchMovieDetails = async (movieId) => {
 
   return movieDetails;
 }
+
+// pour la page Detail Film : la partie des sliders "titres similaires"
+export const fetchSimilarMovies = async (movieId) => {
+  const response = await fetch(`${BASE_URL}/movie/${movieId}/similar?api_key=${API_KEY}`);
+  const data = await response.json();
+  return data.results;
+};
