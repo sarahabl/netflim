@@ -1,89 +1,36 @@
 import React, { useEffect, useState } from 'react';
-import Navbar from '../components/navbar/navbar';
-import BannerFilm from '../components/banner_film/banner_film';
-import Slider from '../components/sliders/slider';
-import { fetchMovies } from '../api/tmdb-api';
+import Hero from '../components/hero/hero.jsx';
+import Slider from '../components/sliders/slider.jsx';
+import { fetchMovies } from '../api/tmdb-api.js';
 
-const Homepage = () => {
-  const [latestMovies, setLatestMovies] = useState([]);
-  const [topRatedMovies, setTopRatedMovies] = useState([]);
-  const [genres, setGenres] = useState({
-    action: [],
-    adventure: [],
-    animation: [],
-    comedy: [],
-    crime: [],
-    documentary: [],
-    drama: [],
-    family: [],
-    fantasy: [],
-    history: [],
-    horror: [],
-    music: [],
-    mystery: [],
-    romance: [],
-    scienceFiction: [],
-    tvMovie: [],
-    thriller: [],
-    war: [],
-    western: [],
-  });
+const Home = () => {
+  const [toWatchMovies, setToWatchMovies] = useState([]);
+  const [favoriteMovies, setFavoriteMovies] = useState([]);
 
   useEffect(() => {
-    const fetchAllMovies = async () => {
-      const latest = await fetchMovies('movie/latest');
-      const topRated = await fetchMovies('movie/top_rated');
-
-      const genreIds = {
-        action: 28,
-        adventure: 12,
-        animation: 16,
-        comedy: 35,
-        crime: 80,
-        documentary: 99,
-        drama: 18,
-        family: 10751,
-        fantasy: 14,
-        history: 36,
-        horror: 27,
-        music: 10402,
-        mystery: 9648,
-        romance: 10749,
-        scienceFiction: 878,
-        tvMovie: 10770,
-        thriller: 53,
-        war: 10752,
-        western: 37,
-      };
-
-      const genrePromises = Object.keys(genreIds).map(async (genre) => {
-        const moviesByGenre = await fetchMovies('discover/movie', { with_genres: genreIds[genre] });
-        return { [genre]: moviesByGenre.results };
-      });
-
-      const genresResults = await Promise.all(genrePromises);
-      const genresData = Object.assign({}, ...genresResults);
-
-      setLatestMovies([latest]);
-      setTopRatedMovies(topRated.results);
-      setGenres(genresData);
+    const getMovies = async () => {
+      const movies = await fetchMovies();
+      setToWatchMovies(movies.slice(0, 5)); // Films soi-disant à voir
+      setFavoriteMovies(movies.slice(5, 10)); // Films soi-disant aimés
     };
-
-    fetchAllMovies();
+    getMovies();
   }, []);
 
   return (
     <div>
-      <Navbar />
-      <BannerFilm />
-      <Slider title="Films du moment" movies={latestMovies} />
-      <Slider title="Top 10 des films" movies={topRatedMovies.slice(0, 10)} />
-      {Object.keys(genres).map((genre) => (
-        <Slider key={genre} title={`Les meilleurs films ${genre}`} movies={genres[genre]} />
-      ))}
+      <Hero />
+      <div className="slider">
+        <Slider title="Films du moment" movies={toWatchMovies} />
+        <Slider title="Top 10 des films" movies={favoriteMovies} />
+        <Slider title="Les meilleurs films d’action" movies={favoriteMovies} />
+        <Slider title="Films du moment" movies={toWatchMovies} />
+        <Slider title="Top 10 des films" movies={favoriteMovies} />
+        <Slider title="Les meilleurs films d’action" movies={favoriteMovies} />
+        <Slider title="Top 10 des films" movies={favoriteMovies} />
+        <Slider title="Les meilleurs films d’action" movies={favoriteMovies} />
+      </div>
     </div>
   );
 };
 
-
-export default Homepage;
+export default Home;

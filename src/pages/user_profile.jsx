@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
-
 import UserProfile from '../components/userProfile/UserProfileComponent.jsx';
-
 import Slider from '../components/sliders/slider.jsx';
 import { fetchMovies } from '../api/tmdb-api.js';
 
