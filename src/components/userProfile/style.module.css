@@ -5,11 +5,95 @@
   padding: 15vh 30vw;
 }
 
+.avatar {
+  margin: 1vw 1vw 1vw 0;
+}
+
 .profile_header {
+  margin: 1vw 1vw 1vw 0;
   display: flex;
 }
 
 .profile_header_text {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+h1 {
+  font-family: "Bebas Neue";
+  font-size: 3rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+h2 {
+  font-family: "Segoe UI";
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+label {
+  font-family: "Segoe UI";
+  font-size: 1.03125rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+/* Style pour le container du switch */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Cache le checkbox d'origine */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* Style pour le toggle */
+.toggle {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.toggle:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked+.toggle {
+  background-color: #2196F3;
+}
+
+input:checked+.toggle:before {
+  transform: translateX(26px);
+}
+
+/* Optionnel: ajoute des styles de focus */
+input:focus+.toggle {
+  box-shadow: 0 0 1px #2196F3;
 }
