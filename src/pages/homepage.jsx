@@ -6,10 +6,12 @@ import { fetchMovies } from '../api/tmdb-api.js';
 const Home = () => {
   const [toWatchMovies, setToWatchMovies] = useState([]);
   const [favoriteMovies, setFavoriteMovies] = useState([]);
+  const [topRatedMovies, setTopRatedMovies] = useState([]);
 
   useEffect(() => {
     const getMovies = async () => {
       const movies = await fetchMovies();
+      const sortedMovies = movies.sort((a, b) => b.rating - a.rating);
       setToWatchMovies(movies.slice(0, 5)); // Films soi-disant à voir
       setFavoriteMovies(movies.slice(5, 10)); // Films soi-disant aimés
     };
