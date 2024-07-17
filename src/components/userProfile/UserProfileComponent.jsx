@@ -35,7 +35,7 @@ const UserProfile = () => {
         </div>
       </div>
       <div className={s.profile_preferences}>
-        <h2>Vos préférences de lecture</h2>
+        <h2 id={s.pref}>Vos préférences de lecture</h2>
         <div className={s.preference}>
           <label>Pays</label>
           <select name="country" value={user.country} onChange={handleInputChange}>
