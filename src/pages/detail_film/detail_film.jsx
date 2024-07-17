@@ -1,7 +1,7 @@
 import React from 'react';
 import Navbar from '../../components/navbar/navbar.jsx';
 // import Slider from '../components/sliders/slider.jsx';
-import './style.module.css';
+import style from './style.module.css';
 
 const DetailFilm = () => {
   // Ces données seront à remplacer par des données réelles plus tard
@@ -18,10 +18,10 @@ const DetailFilm = () => {
   };
 
   return (
-    <div className="detail-film">
+    <div className={`${style.detailFilm} text-light`}>
       <Navbar />
       
-        <div className="banner">
+        <div className={`${style.banner}`}>
             <div className="position-relative">
                 <img 
                     src={film.bannerImage} 
@@ -29,7 +29,7 @@ const DetailFilm = () => {
                     alt={film.title} 
                 />
                 <div className="position-absolute top-0 start-0 w-100 h-100 bg-gradient"></div>
-                <div className="container">
+                <div className={`${style.container}`}>
                     <div className="position-absolute top-50 start-0 translate-middle-y text-start text-white ps-4 mt-lg-5 pt-lg-5">
                         <h1 className="display-3">{film.title}</h1>
                         <div className="mt-3">
@@ -41,41 +41,43 @@ const DetailFilm = () => {
             </div>
         </div>
 
-        <div className="container mt-4">
-            <div className="row">
-                <div className="col-md-6 text-start">
-                    <div className="row mb-3">
-                        <div className="col-4">
-                            <p>Durée: {film.duration}</p>
+        <div className='body'>
+            <div className="container mt-4">
+                <div className="row">
+                    <div className="col-md-6 text-start">
+                        <div className="row mb-3">
+                            <div className="col-4">
+                                <p>Durée: {film.duration}</p>
+                            </div>
+                            <div className="col-4">
+                                <p>Langue: {film.language}</p>
+                            </div>
+                            <div className="col-4">
+                                <p>Genre: {film.genre}</p>
+                            </div>
                         </div>
-                        <div className="col-4">
-                            <p>Langue: {film.language}</p>
-                        </div>
-                        <div className="col-4">
-                            <p>Genre: {film.genre}</p>
+                        <div className="row">
+                            <div className="col-12">
+                                <p><strong>Synopsis:</strong> {film.synopsis}</p>
+                            </div>
                         </div>
                     </div>
-                    <div className="row">
-                        <div className="col-12">
-                            <p><strong>Synopsis:</strong> {film.synopsis}</p>
-                        </div>
+                    <div className="col-md-6 text-start">
+                        <p>Réalisateur: {film.director}</p>
+                        <p>Acteurs: {film.actors.join(', ')}</p>
+                        <p>Scénariste: {film.writer}</p>
                     </div>
                 </div>
-                <div className="col-md-6 text-start">
-                    <p>Réalisateur: {film.director}</p>
-                    <p>Acteurs: {film.actors.join(', ')}</p>
-                    <p>Scénariste: {film.writer}</p>
+            </div>
+
+            <div className="container mt-4">
+                <div className="similar-titles text-start">
+                    <h2>Titres similaires</h2>
+                    {/* Ici, vous intégrerez votre composant Slider plus tard */}
+                    {/* <Slider /> */}
                 </div>
             </div>
         </div>
-
-      <div className="container mt-4">
-        <div className="similar-titles text-start">
-            <h2>Titres similaires</h2>
-            {/* Ici, vous intégrerez votre composant Slider plus tard */}
-            {/* <Slider /> */}
-        </div>
-      </div>
     </div>
   );
 };
