@@ -1,5 +1,8 @@
 .slider-container {
     position: relative;
+    background-color: #141414;
+    color:white;
+    padding: 4% 0% 4% 4%;
 }
 
 .slider-wrapper {
