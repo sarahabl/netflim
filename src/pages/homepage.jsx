@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Navbar from '../components/navbar/navbar';
 import BannerFilm from '../components/banner_film/banner_film';
-import Slider from '../components/slider/slider';
+import Slider from '../components/sliders/slider';
 import { fetchMovies } from '../api/tmdb-api';
 
 const Homepage = () => {
