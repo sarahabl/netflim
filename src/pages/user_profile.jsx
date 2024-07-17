@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 
-import Navbar from '../components/navbar/navbar.jsx';
 import UserProfile from '../components/userProfile/UserProfileComponent.jsx';
 
 import Slider from '../components/sliders/slider.jsx';
@@ -21,11 +20,10 @@ const UserProfilePage = () => {
 
   return (
     <div>
-      <Navbar />
       <UserProfile />
       <div className="content">
-        <Slider title="Favorite Movies" movies={favoriteMovies} />
-        <Slider title="To Watch Movies" movies={toWatchMovies} />
+        <Slider title="Vos films à voir" movies={toWatchMovies} />
+        <Slider title="Les films que vous avez aimés" movies={favoriteMovies} />
       </div>
     </div>
   );

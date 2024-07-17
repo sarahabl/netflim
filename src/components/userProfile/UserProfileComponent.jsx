@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import s from './style.module.css';
+import avatarImage from '../../images/avatar-chat.png';
 
 const UserProfile = () => {
   const [user, setUser] = useState({
-    avatar: '../images/avatar-chat.png',
+    avatar: avatarImage,
     username: 'Martin Dupont',
     country: 'France',
     language: 'Français',
@@ -25,11 +26,13 @@ const UserProfile = () => {
   };
 
   return (
-    <div className="user-profile">
-      <div className="profile-header">
+    <div className={s.user_profile}>
+      <div className={s.profile_header}>
         <img src={user.avatar} alt="Avatar" className="avatar" />
-        <h2>{user.username}</h2>
-        <button onClick={handleProfileUpdate}>Modifier mon profil</button>
+        <div className={s.profile_header_text}>
+          <h2>{user.username}</h2>
+          <button onClick={handleProfileUpdate}>Modifier mon profil</button>
+        </div>
       </div>
       <div className="profile-preferences">
         <h3>Vos préférences de lecture</h3>
