@@ -28,15 +28,15 @@ const UserProfile = () => {
   return (
     <div className={s.user_profile}>
       <div className={s.profile_header}>
-        <img src={user.avatar} alt="Avatar" className="avatar" />
+        <img src={user.avatar} alt="Avatar" className={s.avatar} />
         <div className={s.profile_header_text}>
-          <h2>{user.username}</h2>
+          <h1>{user.username}</h1>
           <button onClick={handleProfileUpdate}>Modifier mon profil</button>
         </div>
       </div>
-      <div className="profile-preferences">
-        <h3>Vos préférences de lecture</h3>
-        <div className="preference">
+      <div className={s.profile_preferences}>
+        <h2>Vos préférences de lecture</h2>
+        <div className={s.preference}>
           <label>Pays</label>
           <select name="country" value={user.country} onChange={handleInputChange}>
             <option value="USA">USA</option>
@@ -44,7 +44,7 @@ const UserProfile = () => {
             <option value="Germany">Germany</option>
           </select>
         </div>
-        <div className="preference">
+        <div className={s.preference}>
           <label>Langue</label>
           <select name="language" value={user.language} onChange={handleInputChange}>
             <option value="English">English</option>
@@ -53,14 +53,18 @@ const UserProfile = () => {
 
           </select>
         </div>
-        <div className="preference">
+        <div className={s.preference}>
           <label>Contenu adulte autorisé</label>
-          <input
-            type="checkbox"
-            name="adultContent"
-            checked={user.adultContent}
-            onChange={handleToggleChange}
-          />
+          <label className={s.switch}>
+            <input
+              type="checkbox"
+              name="adultContent"
+              checked={user.adultContent}
+              onChange={handleToggleChange}
+            />
+            <span className={s.toggle}></span>
+          </label>
+
         </div>
       </div>
     </div>
