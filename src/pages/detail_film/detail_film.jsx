@@ -1,30 +1,36 @@
 import React, { useEffect, useState } from 'react';
 import style from './style.module.css';
-import { fetchMovieDetails } from '../../api/tmdb-api';
+import { fetchMovieDetails, fetchSimilarMovies } from '../../api/tmdb-api';
 import { useParams } from 'react-router-dom';
+import Slider from '../../components/sliders/slider.jsx'; // Ajustez le chemin si nécessaire
 
 const DetailFilm = () => {
-  const [film, setFilm] = useState(null);
-  const { id } = useParams(); // Récupère l'ID du film depuis l'URL
-
-  useEffect(() => {
-    const getMovieDetails = async () => {
-      try {
-        const details = await fetchMovieDetails(id);
-        setFilm(details);
-      } catch (error) {
-        console.error("Erreur lors de la récupération des détails du film:", error);
+    const [film, setFilm] = useState(null);
+    const [similarMovies, setSimilarMovies] = useState([]);
+    const { id } = useParams();
+  
+    useEffect(() => {
+      const getMovieDetails = async () => {
+        try {
+          const details = await fetchMovieDetails(id);
+          setFilm(details);
+  
+          // Récupérer les films similaires
+          const similar = await fetchSimilarMovies(id);
+          setSimilarMovies(similar);
+        } catch (error) {
+          console.error("Erreur lors de la récupération des détails du film:", error);
+        }
+      };
+  
+      if (id) {
+        getMovieDetails();
       }
-    };
-
-    if (id) {
-      getMovieDetails();
+    }, [id]);
+  
+    if (!film) {
+      return <div>Chargement...</div>;
     }
-  }, [id]);
-
-  if (!film) {
-    return <div>Chargement...</div>;
-  }
 
   return (
     <div className={`${style.detailFilm} text-light`}>
@@ -91,7 +97,7 @@ const DetailFilm = () => {
           <div className="similar-titles text-start">
             <h2>Titres similaires</h2>
             {/* Ici, vous intégrerez votre composant Slider plus tard */}
-            {/* <Slider /> */}
+            <Slider movies={similarMovies} />
           </div>
         </div>
       </div>
