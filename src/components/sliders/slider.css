@@ -7,7 +7,7 @@
     overflow-y: hidden;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: thin; /* Pour Firefox */
-    scrollbar-color: rgba(136, 136, 136, 0.5) transparent; /* Pour Firefox */
+    scrollbar-color: rgba(136, 136, 136, 0) transparent; /* Pour Firefox */
 }
 
 /* Styles pour WebKit (Chrome, Safari, etc.) */
