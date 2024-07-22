@@ -7,7 +7,11 @@ export const fetchMovies = async () => {
   const data = await response.json();
   return data.results.map(movie => ({
     ...movie,
-    title: movie.title || movie.original_title
+    title: movie.title || movie.original_title,
+    rating: movie.vote_average,
+    releaseDate: movie.release_date,
+    views: movie.popularity, // Assumons que la popularité correspond au nombre de vues
+    genreIds: movie.genre_ids
   }));
 };
 
