@@ -2,17 +2,30 @@ const API_KEY = 'a3103dfc83b68f0d52d3d263f5b85181';
 const BASE_URL = 'https://api.themoviedb.org/3';
 const LANGUAGE = 'fr-FR';
 
+// Fonction pour récupérer les films populaires avec pagination
 export const fetchMovies = async () => {
-  const response = await fetch(`${BASE_URL}/movie/popular?api_key=${API_KEY}&language=${LANGUAGE}`);
-  const data = await response.json();
-  return data.results.map(movie => ({
-    ...movie,
-    title: movie.title || movie.original_title,
-    rating: movie.vote_average,
-    releaseDate: movie.release_date,
-    views: movie.popularity, // Assumons que la popularité correspond au nombre de vues
-    genreIds: movie.genre_ids
-  }));
+  const fetchPage = async (page) => {
+    const response = await fetch(`${BASE_URL}/movie/popular?api_key=${API_KEY}&language=${LANGUAGE}&page=${page}`);
+    const data = await response.json();
+    return data.results.map(movie => ({
+      ...movie,
+      title: movie.title || movie.original_title,
+      rating: movie.vote_average,
+      releaseDate: movie.release_date,
+      views: movie.popularity, // Assumons que la popularité correspond au nombre de vues
+      genreIds: movie.genre_ids
+    }));
+  };
+
+  // Récupérer les films de plusieurs pages
+  const pages = [1, 2, 3, 4, 5]; // Changer le nombre de pages pour obtenir plus ou moins de films
+  const movies = [];
+  for (const page of pages) {
+    const pageMovies = await fetchPage(page);
+    movies.push(...pageMovies);
+  }
+
+  return movies;
 };
 
 export const fetchMovieDetails = async (movieId) => {
