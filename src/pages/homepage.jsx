@@ -33,18 +33,21 @@ const Home = () => {
     const getMovies = async () => {
       const movies = await fetchMovies();
       
+      // Filtrer les films disponibles en français et ayant un poster
+      const filteredMovies = movies.filter(movie => movie.original_language === 'fr' && movie.poster_path);
+
       // Trier les films par date de sortie (les plus récents en premier)
-      const sortedByReleaseDate = movies.sort((a, b) => new Date(b.releaseDate) - new Date(a.releaseDate));
+      const sortedByReleaseDate = filteredMovies.sort((a, b) => new Date(b.releaseDate) - new Date(a.releaseDate));
       setRecentMovies(sortedByReleaseDate.slice(0, 20)); // Ajuste le nombre de films comme nécessaire
 
       // Trier les films par note (les mieux notés en premier)
-      const sortedByRating = [...movies].sort((a, b) => b.rating - a.rating);
+      const sortedByRating = [...filteredMovies].sort((a, b) => b.rating - a.rating);
       setTopRatedMovies(sortedByRating.slice(0, 20)); // Ajuste le nombre de films comme nécessaire
 
       // Filtrer les films pour chaque genre et les trier par date de parution (du plus ancien au plus récent)
       const genreMovies = {};
       Object.keys(genreIds).forEach(genre => {
-        genreMovies[genre] = movies
+        genreMovies[genre] = filteredMovies
           .filter(movie => movie.genreIds.includes(genreIds[genre]))
           .sort((a, b) => new Date(a.releaseDate) - new Date(b.releaseDate))
           .slice(0, 20); // Ajuste le nombre de films comme nécessaire
