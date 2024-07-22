@@ -1,0 +1,36 @@
+/* buttons.css */
+.btn-danger {
+    /* Styles personnalisés pour le bouton primaire */
+    background-color: #980101 !important;
+    border: none !important;
+    border-radius: 48px !important;
+    width: 167px !important;
+    text-transform: uppercase !important;
+    font-family: "Segoe UI" !important;
+    font-size: 1.125rem !important;
+    font-weight: 700 !important;
+}
+
+.btn-danger .play-icon {
+    width: 15px; 
+    height: auto;
+    margin-right: 10px; /* Espace entre l'icône et le texte */
+}
+
+.play-icon {
+    position: relative;
+    top: -2px;
+}
+
+.btn-secondary {
+    /* Styles personnalisés pour le bouton secondaire */
+    width: 110px !important;
+    border-radius: 48px !important;
+    background-color: #14141480 !important;
+    text-transform: uppercase !important;
+    font-family: "Segoe UI" !important;
+    font-size: 1rem !important;
+    font-weight: 500 !important;
+}
+
+/* Vous pouvez ajouter d'autres styles ici */

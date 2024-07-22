@@ -24,7 +24,7 @@
 }
 
 .slider-wrapper::-webkit-scrollbar-thumb {
-    background-color: rgba(136, 136, 136, 0.5); /* Couleur semi-transparente */
+    background-color: rgba(136, 136, 136, 0); /* Couleur semi-transparente */
     border-radius: 3px;
     border: 2px solid transparent; /* Crée un effet de padding */
     background-clip: content-box;
@@ -32,6 +32,7 @@
 
 .slider-wrapper::-webkit-scrollbar-button {
     display: none; /* Cache les boutons (flèches) de la barre de défilement */
+    color: rgba(136, 136, 136, 0)   ;
 }
 
 .slider-item {
@@ -76,4 +77,19 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.card {
+    background-color: rgba(136, 136, 136, 0) !important;
+}
+
+.card-body {
+    background-image:
+        linear-gradient(to top, 
+        rgba(0, 0, 0, 1) 0%,
+        rgba(0, 0, 0, 0.8) 20%,
+        rgba(0, 0, 0, 0.6) 50%,
+        rgba(0, 0, 0, 0) 100%
+        ) !important;
+    background: none;
 }

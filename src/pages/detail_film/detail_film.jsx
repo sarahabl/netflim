@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import style from './style.module.css';
 import { fetchMovieDetails, fetchSimilarMovies } from '../../api/tmdb-api';
 import { useParams } from 'react-router-dom';
-import Slider from '../../components/sliders/slider.jsx'; // Ajustez le chemin si nécessaire
+import Slider from '../../components/sliders/slider.jsx'; 
+import CustomButton from '../../components/buttons/buttons.jsx';
 
 const DetailFilm = () => {
     const [film, setFilm] = useState(null);
@@ -46,8 +47,8 @@ const DetailFilm = () => {
             <div className="position-absolute top-50 start-0 text-start text-white mx-4 px-2">
               <h1 className="display-3">{film.title}</h1>
               <div className="mt-3">
-                <button type="button" className="btn btn-danger me-2">Lecture</button>
-                <button type="button" className="btn btn-secondary">+ À voir</button>
+                <CustomButton type="primary" className="me-2">Lecture</CustomButton>
+                <CustomButton type="secondary">+ À voir</CustomButton>
               </div>
             </div>
           </div>
