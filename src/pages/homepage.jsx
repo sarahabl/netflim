@@ -4,25 +4,25 @@ import Slider from '../components/sliders/slider.jsx';
 import { fetchMovies } from '../api/tmdb-api.js';
 
 const genreIds = {
-  Action: 28,
-  Adventure: 12,
-  Animation: 16,
-  Comedy: 35,
-  Crime: 80,
-  Documentary: 99,
-  Drama: 18,
-  Family: 10751,
-  Fantasy: 14,
-  History: 36,
-  Horror: 27,
-  Music: 10402,
-  Mystery: 9648,
-  Romance: 10749,
-  ScienceFiction: 878,
-  TVMovie: 10770,
-  Thriller: 53,
-  War: 10752,
-  Western: 37
+  d action: 28,
+  d adventure: 12,
+  d animation: 16,
+  de comédie: 35,
+  de crime: 80,
+  documentaireq: 99,
+  de drama: 18,
+  à regarder en famille : 10751,
+  fantastiques: 14,
+  historiques : 36,
+  d horreur: 27,
+  musicaux : 10402,
+  de mystère: 9648,
+  de romance: 10749,
+  de science fiction: 878,
+  de télécrochet: 10770,
+  thriller: 53,
+  de guerre: 10752,
+  western : 37
 };
 
 const Home = () => {
@@ -60,10 +60,12 @@ const Home = () => {
     <div>
       <Hero />
       <div className="slider">
-        <Slider title="Films du moment" movies={recentMovies} />
-        <Slider title="Top 10 des films" movies={topRatedMovies} />
+        {recentMovies.length >= 5 && <Slider title="Films du moment" movies={recentMovies} />}
+        {topRatedMovies.length >= 5 && <Slider title="Top 10 des films" movies={topRatedMovies} />}
         {Object.keys(genreIds).map(genre => (
-          <Slider key={genre} title={`Films de ${genre}`} movies={genreMovies[genre] || []} />
+          genreMovies[genre]?.length >= 5 && (
+            <Slider key={genre} title={`Les meilleurs films ${genre}`} movies={genreMovies[genre]} />
+          )
         ))}
       </div>
     </div>
