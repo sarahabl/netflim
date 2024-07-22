@@ -32,23 +32,32 @@ const Home = () => {
   useEffect(() => {
     const getMovies = async () => {
       const movies = await fetchMovies();
-      
+
+      // Filtrer les films ayant un poster et un synopsis
+      const filteredMovies = movies.filter(movie => movie.poster_path && movie.overview);
+
       // Trier les films par date de sortie (les plus récents en premier)
-      const sortedByReleaseDate = movies.sort((a, b) => new Date(b.releaseDate) - new Date(a.releaseDate));
+      const sortedByReleaseDate = filteredMovies.sort((a, b) => new Date(b.releaseDate) - new Date(a.releaseDate));
       setRecentMovies(sortedByReleaseDate.slice(0, 20)); // Ajuste le nombre de films comme nécessaire
 
       // Trier les films par note (les mieux notés en premier)
-      const sortedByRating = [...movies].sort((a, b) => b.rating - a.rating);
+      const sortedByRating = [...filteredMovies].sort((a, b) => b.rating - a.rating);
       setTopRatedMovies(sortedByRating.slice(0, 20)); // Ajuste le nombre de films comme nécessaire
 
-      // Filtrer les films pour chaque genre et les trier par date de parution (du plus ancien au plus récent)
+      // Créer un ensemble pour suivre les films déjà attribués
+      const assignedMovies = new Set();
       const genreMovies = {};
+
       Object.keys(genreIds).forEach(genre => {
-        genreMovies[genre] = movies
-          .filter(movie => movie.genreIds.includes(genreIds[genre]))
-          .sort((a, b) => new Date(a.releaseDate) - new Date(b.releaseDate))
+        genreMovies[genre] = filteredMovies
+          .filter(movie => movie.genreIds.includes(genreIds[genre]) && !assignedMovies.has(movie.id))
+          .sort((a, b) => b.views - a.views) // Tri par nombre de vues, du plus élevé au plus bas
           .slice(0, 20); // Ajuste le nombre de films comme nécessaire
+
+        // Ajouter les films du genre actuel à l'ensemble des films attribués
+        genreMovies[genre].forEach(movie => assignedMovies.add(movie.id));
       });
+
       setGenreMovies(genreMovies);
     };
 
