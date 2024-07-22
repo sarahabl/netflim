@@ -2,7 +2,13 @@
   background: url('../../images/banner.png') fixed;
   background-size: 97.5vw;
   min-height: 75vh;
-  padding: 15vh 30vw;
+  padding: 12vh 30vw;
+}
+
+.profile_container {
+  background-color: white;
+  padding: 0 1vw 1vw 1vw;
+  border-radius: 4px;
 }
 
 .avatar {
@@ -148,4 +154,41 @@ input:checked+.toggle:after {
 /* Optionnel: ajoute des styles de focus */
 input:focus+.toggle {
   box-shadow: 0 0 1px var(--dark-red);
+}
+
+@media screen and (max-width: 990px) {
+  .user_profile {
+    background: var(--black);
+    padding: 10vh 15vw 2vh;
+    min-height: 30vh;
+  }
+}
+
+@media screen and (max-width: 702px) {
+  .avatar {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+@media screen and (max-width: 453px) {
+  #pref {
+    font-size: 1.2rem;
+  }
+
+  label,
+  #country,
+  #lang {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 378px) {
+  .user_profile {
+    padding: 7.5vh 5vw 2vh;
+  }
+
+  .profile_container {
+    padding: 0 2vw;
+  }
 }
