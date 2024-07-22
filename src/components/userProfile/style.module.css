@@ -162,12 +162,24 @@ input:focus+.toggle {
     padding: 10vh 15vw 2vh;
     min-height: 30vh;
   }
+
+  .profile_container {
+    padding: 0 1vh 1vh 1vh;
+  }
+
+  .profile_header {
+    padding: 0 0 1vh 0;
+  }
 }
 
 @media screen and (max-width: 702px) {
   .avatar {
     width: 80px;
     height: 80px;
+  }
+
+  .profile_container {
+    padding: 0.1vh 1vh 1vh 1vh;
   }
 }
 
@@ -180,10 +192,11 @@ input:focus+.toggle {
   #country,
   #lang {
     font-size: 1rem;
+    line-height: 3rem;
   }
 }
 
-@media screen and (max-width: 378px) {
+@media screen and (max-width: 385px) {
   .user_profile {
     padding: 7.5vh 5vw 2vh;
   }
