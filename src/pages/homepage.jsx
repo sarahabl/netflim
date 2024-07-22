@@ -3,10 +3,32 @@ import Hero from '../components/hero/hero.jsx';
 import Slider from '../components/sliders/slider.jsx';
 import { fetchMovies } from '../api/tmdb-api.js';
 
+const genreIds = {
+  Action: 28,
+  Adventure: 12,
+  Animation: 16,
+  Comedy: 35,
+  Crime: 80,
+  Documentary: 99,
+  Drama: 18,
+  Family: 10751,
+  Fantasy: 14,
+  History: 36,
+  Horror: 27,
+  Music: 10402,
+  Mystery: 9648,
+  Romance: 10749,
+  ScienceFiction: 878,
+  TVMovie: 10770,
+  Thriller: 53,
+  War: 10752,
+  Western: 37
+};
+
 const Home = () => {
   const [recentMovies, setRecentMovies] = useState([]);
   const [topRatedMovies, setTopRatedMovies] = useState([]);
-  const [actionMovies, setActionMovies] = useState([]);
+  const [genreMovies, setGenreMovies] = useState({});
 
   useEffect(() => {
     const getMovies = async () => {
@@ -14,23 +36,25 @@ const Home = () => {
       
       // Trier les films par date de sortie (les plus récents en premier)
       const sortedByReleaseDate = movies.sort((a, b) => new Date(b.releaseDate) - new Date(a.releaseDate));
-      setRecentMovies(sortedByReleaseDate.slice(0, 10)); // Ajuste le nombre de films comme nécessaire
+      setRecentMovies(sortedByReleaseDate.slice(0, 20)); // Ajuste le nombre de films comme nécessaire
 
       // Trier les films par note (les mieux notés en premier)
       const sortedByRating = [...movies].sort((a, b) => b.rating - a.rating);
-      setTopRatedMovies(sortedByRating.slice(0, 10)); // Ajuste le nombre de films comme nécessaire
+      setTopRatedMovies(sortedByRating.slice(0, 20)); // Ajuste le nombre de films comme nécessaire
 
-      // Filtrer les films d'action et les trier par nombre de vues
-      const actionGenreId = 28; // ID du genre Action (à vérifier selon l'API TMDB)
-      const sortedByViews = movies
-        .filter(movie => movie.genreIds.includes(actionGenreId))
-        .sort((a, b) => b.views - a.views);
-      setActionMovies(sortedByViews.slice(0, 10)); // Ajuste le nombre de films comme nécessaire
+      // Filtrer les films pour chaque genre et les trier par nombre de vues
+      const genreMovies = {};
+      Object.keys(genreIds).forEach(genre => {
+        genreMovies[genre] = movies
+          .filter(movie => movie.genreIds.includes(genreIds[genre]))
+          .sort((a, b) => b.views - a.views)
+          .slice(0, 20); // Ajuste le nombre de films comme nécessaire
+      });
+      setGenreMovies(genreMovies);
     };
 
     getMovies();
   }, []);
-
 
   return (
     <div>
@@ -38,7 +62,9 @@ const Home = () => {
       <div className="slider">
         <Slider title="Films du moment" movies={recentMovies} />
         <Slider title="Top 10 des films" movies={topRatedMovies} />
-        <Slider title="Films d'action les plus regardés" movies={actionMovies} />
+        {Object.keys(genreIds).map(genre => (
+          <Slider key={genre} title={`Films de ${genre}`} movies={genreMovies[genre] || []} />
+        ))}
       </div>
     </div>
   );
