@@ -32,7 +32,7 @@ const Home = () => {
   useEffect(() => {
     const getMovies = async () => {
       const movies = await fetchMovies();
-      
+
       // Filtrer les films disponibles en français et ayant un poster
       const filteredMovies = movies.filter(movie => movie.original_language === 'fr' && movie.poster_path);
 
@@ -44,14 +44,20 @@ const Home = () => {
       const sortedByRating = [...filteredMovies].sort((a, b) => b.rating - a.rating);
       setTopRatedMovies(sortedByRating.slice(0, 20)); // Ajuste le nombre de films comme nécessaire
 
-      // Filtrer les films pour chaque genre et les trier par date de parution (du plus ancien au plus récent)
+      // Créer un ensemble pour suivre les films déjà attribués
+      const assignedMovies = new Set();
       const genreMovies = {};
+
       Object.keys(genreIds).forEach(genre => {
         genreMovies[genre] = filteredMovies
-          .filter(movie => movie.genreIds.includes(genreIds[genre]))
-          .sort((a, b) => new Date(a.releaseDate) - new Date(b.releaseDate))
+          .filter(movie => movie.genreIds.includes(genreIds[genre]) && !assignedMovies.has(movie.id))
+          .sort((a, b) => b.views - a.views) // Tri par nombre de vues, du plus élevé au plus bas
           .slice(0, 20); // Ajuste le nombre de films comme nécessaire
+
+        // Ajouter les films du genre actuel à l'ensemble des films attribués
+        genreMovies[genre].forEach(movie => assignedMovies.add(movie.id));
       });
+
       setGenreMovies(genreMovies);
     };
 
