@@ -18,7 +18,7 @@ const Hero = () => {
             </div>
             <h1 className="text-white">Titre du film</h1>
             <div className="mt-3 d-flex">
-                <button className="btn btn-primary me-2">
+                <button className="btn btn-primary btn-danger me-2">
                     Lecture
                 </button>
                 <button className="btn btn-secondary">

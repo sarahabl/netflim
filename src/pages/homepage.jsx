@@ -41,12 +41,12 @@ const Home = () => {
       const sortedByRating = [...movies].sort((a, b) => b.rating - a.rating);
       setTopRatedMovies(sortedByRating.slice(0, 20)); // Ajuste le nombre de films comme nécessaire
 
-      // Filtrer les films pour chaque genre et les trier par nombre de vues
+      // Filtrer les films pour chaque genre et les trier par date de parution (du plus ancien au plus récent)
       const genreMovies = {};
       Object.keys(genreIds).forEach(genre => {
         genreMovies[genre] = movies
           .filter(movie => movie.genreIds.includes(genreIds[genre]))
-          .sort((a, b) => b.views - a.views)
+          .sort((a, b) => new Date(a.releaseDate) - new Date(b.releaseDate))
           .slice(0, 20); // Ajuste le nombre de films comme nécessaire
       });
       setGenreMovies(genreMovies);
