@@ -51,7 +51,6 @@ const UserProfile = () => {
               <option value="English">English</option>
               <option value="Français">Français</option>
               <option value="Deutsch">Deutsch</option>
-
             </select>
           </div>
           <div className={s.preference}>
@@ -65,7 +64,6 @@ const UserProfile = () => {
               />
               <span className={s.toggle}></span>
             </label>
-
           </div>
         </div>
       </div>
