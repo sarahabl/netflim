@@ -27,44 +27,46 @@ const UserProfile = () => {
 
   return (
     <div className={s.user_profile}>
-      <div className={s.profile_header}>
-        <img src={user.avatar} alt="Avatar" className={s.avatar} />
-        <div className={s.profile_header_text}>
-          <h1 id={s.name}>{user.username}</h1>
-          <button id={s.modif} onClick={handleProfileUpdate}>Modifier mon profil</button>
+      <div className={s.profile_container}>
+        <div className={s.profile_header}>
+          <img src={user.avatar} alt="Avatar" className={s.avatar} />
+          <div className={s.profile_header_text}>
+            <h1 id={s.name}>{user.username}</h1>
+            <button id={s.modif} onClick={handleProfileUpdate}>Modifier mon profil</button>
+          </div>
         </div>
-      </div>
-      <div className={s.profile_preferences}>
-        <h2 id={s.pref}>Vos préférences de lecture</h2>
-        <div className={s.preference}>
-          <label>Pays : </label>
-          <select id={s.country} name="country" value={user.country} onChange={handleInputChange}>
-            <option value="USA">USA</option>
-            <option value="France">France</option>
-            <option value="Germany">Germany</option>
-          </select>
-        </div>
-        <div className={s.preference}>
-          <label>Langue : </label>
-          <select id={s.lang} name="language" value={user.language} onChange={handleInputChange}>
-            <option value="English">English</option>
-            <option value="Français">Français</option>
-            <option value="Deutsch">Deutsch</option>
+        <div className={s.profile_preferences}>
+          <h2 id={s.pref}>Vos préférences de lecture</h2>
+          <div className={s.preference}>
+            <label>Pays : </label>
+            <select id={s.country} name="country" value={user.country} onChange={handleInputChange}>
+              <option value="USA">USA</option>
+              <option value="France">France</option>
+              <option value="Germany">Germany</option>
+            </select>
+          </div>
+          <div className={s.preference}>
+            <label>Langue : </label>
+            <select id={s.lang} name="language" value={user.language} onChange={handleInputChange}>
+              <option value="English">English</option>
+              <option value="Français">Français</option>
+              <option value="Deutsch">Deutsch</option>
 
-          </select>
-        </div>
-        <div className={s.preference}>
-          <label>Contenu adulte autorisé</label>
-          <label className={s.switch}>
-            <input
-              type="checkbox"
-              name="adultContent"
-              checked={user.adultContent}
-              onChange={handleToggleChange}
-            />
-            <span className={s.toggle}></span>
-          </label>
+            </select>
+          </div>
+          <div className={s.preference}>
+            <label>Contenu adulte autorisé</label>
+            <label className={s.switch}>
+              <input
+                type="checkbox"
+                name="adultContent"
+                checked={user.adultContent}
+                onChange={handleToggleChange}
+              />
+              <span className={s.toggle}></span>
+            </label>
 
+          </div>
         </div>
       </div>
     </div>
