@@ -18,7 +18,7 @@ export const fetchMovies = async () => {
   };
 
   // Récupérer les films de plusieurs pages
-  const pages = [1, 2, 3, 4, 5]; // Changer le nombre de pages pour obtenir plus ou moins de films
+  const pages = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]; // Changer le nombre de pages pour obtenir plus ou moins de films
   const movies = [];
   for (const page of pages) {
     const pageMovies = await fetchPage(page);
