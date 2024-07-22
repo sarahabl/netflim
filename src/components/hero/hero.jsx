@@ -2,6 +2,7 @@ import React from 'react';
 import s from './style.module.css';
 import bannerImage from '../../images/banner.png'; // Mettez à jour le chemin selon votre structure de projet
 import centralImage from '../../images/banner.png'; // Exemple pour l'image centrale
+import CustomButton from '../../components/buttons/buttons.jsx';
 
 const Hero = () => {
   return (
@@ -17,14 +18,10 @@ const Hero = () => {
                 <span className="me-2">🔥</span> Le + populaire
             </div>
             <h1 className="text-white">Titre du film</h1>
-            <div className="mt-3 d-flex">
-                <button className="btn btn-primary btn-danger me-2">
-                    Lecture
-                </button>
-                <button className="btn btn-secondary">
-                    + À voir
-                </button>
-            </div>
+            <div className="mt-3">
+                <CustomButton type="primary" className="me-2">Lecture</CustomButton>
+                <CustomButton type="secondary">+ À voir</CustomButton>
+              </div>
         </div>
     </div>
     </div>
