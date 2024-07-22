@@ -31,7 +31,7 @@ const UserProfile = () => {
         <img src={user.avatar} alt="Avatar" className={s.avatar} />
         <div className={s.profile_header_text}>
           <h1 id={s.name}>{user.username}</h1>
-          <button onClick={handleProfileUpdate}>Modifier mon profil</button>
+          <button id={s.modif} onClick={handleProfileUpdate}>Modifier mon profil</button>
         </div>
       </div>
       <div className={s.profile_preferences}>
