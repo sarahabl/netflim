@@ -48,6 +48,14 @@ label,
   line-height: normal;
 }
 
+#country,
+#lang {
+  padding-left: 3px;
+  width: 120px;
+  border: 1px solid grey;
+  border-radius: 4px;
+}
+
 .preference {
   display: flex;
   align-items: center;
