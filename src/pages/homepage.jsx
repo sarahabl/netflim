@@ -33,8 +33,8 @@ const Home = () => {
     const getMovies = async () => {
       const movies = await fetchMovies();
 
-      // Filtrer les films disponibles en français et ayant un poster
-      const filteredMovies = movies.filter(movie => movie.original_language === 'fr' && movie.poster_path);
+      // Filtrer les films ayant un poster et un synopsis
+      const filteredMovies = movies.filter(movie => movie.poster_path && movie.overview);
 
       // Trier les films par date de sortie (les plus récents en premier)
       const sortedByReleaseDate = filteredMovies.sort((a, b) => new Date(b.releaseDate) - new Date(a.releaseDate));
