@@ -7,8 +7,15 @@
     width: 167px !important;
     text-transform: uppercase !important;
     font-family: "Segoe UI" !important;
-    font-size: 1.125rem !important;
+    font-size: 1.125em !important;
     font-weight: 700 !important;
+}
+
+@media screen and (max-width: 900px) {
+    .btn-danger {
+        width: 120px !important;
+        font-size: 1em !important;
+    }
 }
 
 .btn-danger .play-icon {

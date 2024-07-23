@@ -61,3 +61,22 @@
   position: relative;
   top: 20% !important;
 }
+
+@media screen and (max-width: 400px) {
+  .movie-backdrop {
+    top: -79% !important;
+  }
+
+  .position-absolute {
+    background-color: #141414 !important;
+    margin-top: 40%;
+  }
+  
+  .titreBox {
+    margin-bottom: 35% !important;
+  }
+
+  .position-relative {
+    margin-bottom: 40% !important;
+  }
+}
