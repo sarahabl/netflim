@@ -2,7 +2,13 @@
   background: url('../../images/banner.png') fixed;
   background-size: 97.5vw;
   min-height: 75vh;
-  padding: 15vh 30vw;
+  padding: 12vh 30vw;
+}
+
+.profile_container {
+  background-color: white;
+  padding: 0 1vw 1vw 1vw;
+  border-radius: 4px;
 }
 
 .avatar {
@@ -29,6 +35,16 @@
   line-height: normal;
 }
 
+#modif {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1rem;
+  color: white;
+  background-color: var(--black);
+  border-radius: 40px;
+  border: none;
+  padding: 1.25vh 1.75vw;
+}
+
 #pref {
   font-family: "Segoe UI";
   font-size: 1.5rem;
@@ -46,6 +62,14 @@ label,
   font-style: normal;
   font-weight: normal;
   line-height: normal;
+}
+
+#country,
+#lang {
+  padding-left: 3px;
+  width: 120px;
+  border: 1px solid grey;
+  border-radius: 4px;
 }
 
 .preference {
@@ -106,7 +130,7 @@ label,
   position: absolute;
   width: 5px;
   height: 10px;
-  border: solid black;
+  border: solid var(--black);
   border-width: 0 2px 2px 0;
   transform: rotate(45deg);
   opacity: 0;
@@ -130,4 +154,54 @@ input:checked+.toggle:after {
 /* Optionnel: ajoute des styles de focus */
 input:focus+.toggle {
   box-shadow: 0 0 1px var(--dark-red);
+}
+
+@media screen and (max-width: 990px) {
+  .user_profile {
+    background: var(--black);
+    padding: 10vh 15vw 6vh;
+    min-height: 30vh;
+  }
+
+  .profile_container {
+    padding: 0 1vh 1vh 1vh;
+  }
+
+  .profile_header {
+    padding: 0 0 1vh 0;
+  }
+}
+
+@media screen and (max-width: 702px) {
+  .avatar {
+    width: 80px;
+    height: 80px;
+  }
+
+  .profile_container {
+    padding: 0.1vh 1vh 1vh 1vh;
+  }
+}
+
+@media screen and (max-width: 453px) {
+  #pref {
+    font-size: 1.2rem;
+  }
+
+  label,
+  #country,
+  #lang {
+    font-size: 1rem;
+    line-height: 3rem;
+  }
+}
+
+@media screen and (max-width: 385px) {
+  .user_profile {
+    padding: 7.5vh 5vw 5vh;
+  }
+
+  .profile_container {
+    padding: 0 2vw;
+  }
 }

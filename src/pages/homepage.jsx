@@ -2,6 +2,28 @@ import React, { useEffect, useState } from 'react';
 import Hero from '../components/hero/hero.jsx';
 import Slider from '../components/sliders/slider.jsx';
 import { fetchMovies } from '../api/tmdb-api.js';
+import Footer from '../components/footer/footer.jsx';
+
+const genreIds = {
+  "d'action": 28,
+  "d'adventure": 12,
+  "d'animation": 16,
+  "de comédie": 35,
+  "de crime": 80,
+  "documentaires": 99,
+  "de drama": 18,
+  "à regarder en famille": 10751,
+  "fantastiques": 14,
+  "historiques": 36,
+  "d'horreur": 27,
+  "musicaux": 10402,
+  "de romance": 10749,
+  "de science fiction": 878,
+  "de télécrochet": 10770,
+  "thriller": 53,
+  "de guerre": 10752,
+  "western": 37
+};
 
 const genreIds = {
   "d'action": 28,
@@ -67,7 +89,7 @@ const Home = () => {
   return (
     <div>
       <Hero />
-      <div className="slider mt-n5">
+      <div className="slider">
         {recentMovies.length >= 5 && <Slider title="Films du moment" movies={recentMovies} />}
         {topRatedMovies.length >= 5 && <Slider title="Top 10 des films" movies={topRatedMovies} />}
         {Object.keys(genreIds).map(genre => (
@@ -76,6 +98,7 @@ const Home = () => {
           )
         ))}
       </div>
+      <Footer />
     </div>
   );
 };

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import UserProfile from '../components/userProfile/UserProfileComponent.jsx';
 import Slider from '../components/sliders/slider.jsx';
 import { fetchMovies } from '../api/tmdb-api.js';
+import Footer from '../components/footer/footer.jsx';
 
 const UserProfilePage = () => {
   const [toWatchMovies, setToWatchMovies] = useState([]);
@@ -23,6 +24,7 @@ const UserProfilePage = () => {
         <Slider title="Vos films à voir" movies={toWatchMovies} />
         <Slider title="Les films que vous avez aimés" movies={favoriteMovies} />
       </div>
+      <Footer />
     </div>
   );
 };
