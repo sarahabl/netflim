@@ -6,6 +6,7 @@
     align-items: center;
     padding: 16px 16px;
     background: linear-gradient(to bottom, #141414, #14141400);
+    z-index: 5;
   }
   
   .logo img {

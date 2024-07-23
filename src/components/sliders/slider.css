@@ -2,7 +2,6 @@
     position: relative;
     background-color: #141414;
     color: white;
-    padding: 4% 0% 4% 4%;
 }
 
 .slider-wrapper {
@@ -11,7 +10,7 @@
     -webkit-overflow-scrolling: touch;
     scrollbar-width: thin;
     /* Pour Firefox */
-    scrollbar-color: rgba(136, 136, 136, 0) transparent;
+    scrollbar-color: rgba(136, 136, 136, 0.5) transparent;
     /* Pour Firefox */
 }
 

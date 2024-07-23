@@ -26,10 +26,6 @@
     font-size: 1.2rem;
   }
   
-  .centralImageContainer {
-    width: 50%; /* Ajustez selon la taille souhaitée */
-  }
-  
   .textContainer {
     display: flex;
     padding: 4%;
@@ -39,3 +35,15 @@
     gap: 1rem;
     flex: 1 0 0;
   }
+
+.movie-backdrop {
+  top: 9.35% !important;
+  left: 20.45% !important;
+  width: 59.1%;
+  height: 52%;
+}
+
+.titreBox {
+  position: relative;
+  top: 20% !important;
+}
