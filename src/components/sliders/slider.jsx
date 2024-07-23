@@ -10,7 +10,7 @@ const Slider = ({ title, movies }) => {
   };
 
   return (
-    <div className="slider-container">
+    <div className="slider-container p-4">
       <h2 className="mb-3">{title}</h2>
       <div className="slider-wrapper">
         <div className="d-flex flex-nowrap overflow-auto">

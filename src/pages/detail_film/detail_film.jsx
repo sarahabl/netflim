@@ -59,7 +59,7 @@ const DetailFilm = () => {
         <div className="container mt-4">
           <div className="row">
             <div className="col-lg-8 text-start">
-              <div className="row mb-3">
+              <div className="row mb-3 text-uppercase fw-bold">
                 <div className="col-auto me-3">
                   <p>Durée: {film.duration} min</p>
                 </div>
@@ -78,7 +78,7 @@ const DetailFilm = () => {
                             href={`https://www.youtube.com/watch?v=${film.trailerKey}`} 
                             target="_blank" 
                             rel="noopener noreferrer" 
-                            className="btn btn-primary mt-2"
+                            className="mt-2"
                         >
                             Voir la bande-annonce
                         </a>
@@ -86,7 +86,7 @@ const DetailFilm = () => {
                 </div>
               </div>
             </div>
-            <div className="col-lg-4 text-start">
+            <div className="col-lg-4 mt-4 text-start">
               <p>Réalisateur: {film.director}</p>
               <p>Acteurs: {film.actors.join(', ')}</p>
               <p>Scénariste: {film.writer}</p>

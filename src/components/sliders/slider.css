@@ -1,44 +1,53 @@
 .slider-container {
     position: relative;
     background-color: #141414;
-    color:white;
-    padding: 4% 0% 4% 4%;
+    color: white;
 }
 
 .slider-wrapper {
     overflow-x: auto;
     overflow-y: hidden;
     -webkit-overflow-scrolling: touch;
-    scrollbar-width: thin; /* Pour Firefox */
-    scrollbar-color: rgba(136, 136, 136, 0) transparent; /* Pour Firefox */
+    scrollbar-width: thin;
+    /* Pour Firefox */
+    scrollbar-color: rgba(136, 136, 136, 0.5) transparent;
+    /* Pour Firefox */
 }
 
 /* Styles pour WebKit (Chrome, Safari, etc.) */
 .slider-wrapper::-webkit-scrollbar {
-    width: 6px; /* Largeur de la barre de défilement verticale */
-    height: 3px; /* Hauteur de la barre de défilement horizontale */
+    width: 3px;
+    /* Largeur de la barre de défilement verticale */
+    height: 3px;
+    /* Hauteur de la barre de défilement horizontale */
 }
 
 .slider-wrapper::-webkit-scrollbar-track {
-    background: transparent; /* Fond transparent */
+    background: transparent;
+    /* Fond transparent */
 }
 
 .slider-wrapper::-webkit-scrollbar-thumb {
-    background-color: rgba(136, 136, 136, 0); /* Couleur semi-transparente */
+    background-color: rgba(136, 136, 136, 0);
+    /* Couleur semi-transparente */
     border-radius: 3px;
-    border: 2px solid transparent; /* Crée un effet de padding */
+    border: 2px solid transparent;
+    /* Crée un effet de padding */
     background-clip: content-box;
 }
 
 .slider-wrapper::-webkit-scrollbar-button {
-    display: none; /* Cache les boutons (flèches) de la barre de défilement */
-    color: rgba(136, 136, 136, 0)   ;
+    display: none;
+    /* Cache les boutons (flèches) de la barre de défilement */
+    color: rgba(136, 136, 136, 0);
 }
 
 .slider-item {
     flex: 0 0 auto;
-    width: 300px; /* Ajustez selon vos besoins */
-    margin: 1rem; /* Espace entre les éléments */
+    width: 300px;
+    /* Ajustez selon vos besoins */
+    margin: 1rem;
+    /* Espace entre les éléments */
 }
 
 .movie-card {
@@ -85,11 +94,16 @@
 
 .card-body {
     background-image:
-        linear-gradient(to top, 
-        rgba(0, 0, 0, 1) 0%,
-        rgba(0, 0, 0, 0.8) 20%,
-        rgba(0, 0, 0, 0.6) 50%,
-        rgba(0, 0, 0, 0) 100%
-        ) !important;
+        linear-gradient(to top,
+            rgba(0, 0, 0, 1) 0%,
+            rgba(0, 0, 0, 0.8) 20%,
+            rgba(0, 0, 0, 0.6) 50%,
+            rgba(0, 0, 0, 0) 100%) !important;
     background: none;
+}
+
+@media screen and (max-width: 990px) {
+    .slider-container {
+        padding: 0% 0% 0% 4%;
+    }
 }

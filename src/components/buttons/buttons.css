@@ -12,8 +12,6 @@
 }
 
 .btn-danger .play-icon {
-    width: 15px; 
-    height: auto;
     margin-right: 10px; /* Espace entre l'icône et le texte */
 }
 
