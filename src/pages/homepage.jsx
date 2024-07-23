@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Hero from '../components/hero/hero.jsx';
 import Slider from '../components/sliders/slider.jsx';
 import { fetchMovies } from '../api/tmdb-api.js';
+import Footer from '../components/footer/footer.jsx';
 
 const genreIds = {
   "d'action": 28,
@@ -76,6 +77,7 @@ const Home = () => {
           )
         ))}
       </div>
+      <Footer />
     </div>
   );
 };
