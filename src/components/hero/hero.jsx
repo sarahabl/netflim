@@ -50,7 +50,7 @@ const Hero = () => {
                 <div 
                     className="position-absolute movie-backdrop"
                     style={{
-                        backgroundImage: `url(https://image.tmdb.org/t/p/original${currentMovie.backdrop_path})`,
+                        backgroundImage: `url(https://image.tmdb.org/t/p/w1280${currentMovie.backdrop_path})`,
                         backgroundSize: 'cover',
                         backgroundPosition: 'center',
                         zIndex: 1
