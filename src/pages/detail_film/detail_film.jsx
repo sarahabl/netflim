@@ -4,6 +4,7 @@ import { fetchMovieDetails, fetchSimilarMovies } from '../../api/tmdb-api';
 import { useParams } from 'react-router-dom';
 import Slider from '../../components/sliders/slider.jsx'; 
 import CustomButton from '../../components/buttons/buttons.jsx';
+import Footer from '../../components/footer/footer.jsx';
 
 const DetailFilm = () => {
     const [film, setFilm] = useState(null);
@@ -102,6 +103,7 @@ const DetailFilm = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };
