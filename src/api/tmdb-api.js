@@ -54,7 +54,7 @@ export const fetchMovieDetails = async (movieId) => {
     duration: movieData.runtime,
     language: movieData.original_language,
     synopsis: movieData.overview || englishTitle?.data?.overview,
-    bannerImage: movieData.backdrop_path ? `https://image.tmdb.org/t/p/w500${movieData.backdrop_path}` : null,
+    bannerImage: movieData.backdrop_path ? `https://image.tmdb.org/t/p/original${movieData.backdrop_path}` : null,
     genre: movieData.genres.map(genre => genre.name).join(', '),
     director: creditsData.crew.find(member => member.job === 'Director')?.name || 'N/A',
     writer: creditsData.crew.find(member => member.job === 'Screenplay')?.name || 'N/A',
