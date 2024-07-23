@@ -9,7 +9,7 @@ const Button = ({ type, onClick, children, className }) => {
 
   // Gestionnaire d'événement pour afficher l'alerte
   const handleClick = () => {
-    alert("Site en construction. La lecture du film n'est pas encore disponible.");
+    alert("Site en construction. La lecture du film et l'ajout à votre liste 'à voir' ne sont pas encore disponibles.");
   };
 
   return (
