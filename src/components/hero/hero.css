@@ -1,46 +1,60 @@
 .hero {
-    height: 100vh;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-  }
-  
-  .banner {
-    height: 100%;
-    background-size: cover;
-    background-position: center;
-  }
-  
-  .overlay {
-    background: rgba(0, 0, 0, 0.5); /* Pour un effet de superposition */
-    height: 100%;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .tag {
-    font-size: 1.2rem;
-  }
-  
-  .textContainer {
-    display: flex;
-    padding: 4%;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: flex-start;
-    gap: 1rem;
-    flex: 1 0 0;
-  }
+  height: 100vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.banner {
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+}
+
+.overlay {
+  background: rgba(0, 0, 0, 0.5); /* Pour un effet de superposition */
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.tag {
+  font-size: 1.2rem;
+}
+
+.textContainer {
+  display: flex;
+  padding: 4%;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: 1rem;
+  flex: 1 0 0;
+}
 
 .movie-backdrop {
-  top: 9.35% !important;
+  top: 11.8% !important;
   left: 20.45% !important;
   width: 59.1%;
-  height: 52%;
+  height: 66%;
+  transition: opacity 0.5s ease-in-out;
+  position: absolute;
+  z-index: 1;
+  opacity: 0;
+}
+
+.fade-in {
+  opacity: 1;
+  z-index: 2;
+}
+
+.fade-out {
+  opacity: 0;
+  z-index: 1;
 }
 
 .titreBox {
