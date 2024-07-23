@@ -21,7 +21,6 @@ Netflim est une application web React dédiée aux amateurs de cinéma, dévelop
 
 2. Installez les dépedances :
    ```git
-   cd netflim
-npm install
+   cd netflim   npm install
 
 
